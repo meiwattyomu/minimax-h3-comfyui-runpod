@@ -699,7 +699,7 @@ ENV COMFYUI_DIR=/opt/ComfyUI \
 EXPOSE 8188
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=180s --retries=5 \
-  CMD-SHELL curl -fsS "http://127.0.0.1:${COMFYUI_PORT:-8188}/system_stats" >/dev/null || exit 1
+  CMD curl -fsS "http://127.0.0.1:${COMFYUI_PORT:-8188}/system_stats" >/dev/null || exit 1
 
 WORKDIR /opt/ComfyUI
 ENTRYPOINT ["/usr/local/bin/start-comfyui"]
